@@ -1,0 +1,1974 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>2026年07月10日-华西战区天气预报  </title><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Microsoft YaHei","PingFang SC",sans-serif;background:#f0f2f5;padding:16px;color:#1a1a2e;line-height:1.6}
+.container{max-width:1400px;margin:0 auto}
+.header{background:linear-gradient(135deg,#0d2137,#1a3f5c);color:#fff;padding:30px 36px;border-radius:14px 14px 0 0}
+.header h1{font-size:22px;font-weight:700;margin-bottom:6px;letter-spacing:1px}
+.header .sub{font-size:13px;opacity:0.82;line-height:1.6}
+.header .update-time{font-size:11px;opacity:0.6;margin-top:4px}
+.header .cma-badge{display:inline-block;background:#c62828;color:#fff;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:700;margin-left:8px;vertical-align:middle}
+.summary{background:#fff;padding:14px 24px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;border-bottom:1px solid #e8ecf2}
+.s-tag{padding:5px 14px;border-radius:18px;font-size:12px;font-weight:600;white-space:nowrap}
+.s-ok{background:#e8f5e9;color:#2e7d32}
+.s-rain{background:#e3f2fd;color:#1565c0}
+.s-crain{background:#fff3e0;color:#e65100}
+.s-ext{background:#ffebee;color:#c62828}
+.s-hot{background:#fff0f0;color:#d32f2f}
+.s-cold{background:#e8eaf6;color:#283593}
+.s-label{font-size:10px;opacity:0.7;font-weight:400}
+.s-cma{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+.global-controls{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid #e2e8f0;padding:8px 16px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;box-shadow:0 2px 4px rgba(0,0,0,0.04)}
+.global-controls .gc-label{font-size:13px;font-weight:600;color:#1a3a5c;margin-right:4px}
+.gc-btn{font-size:11px;padding:4px 12px;border-radius:6px;font-weight:600;cursor:pointer;border:1px solid #cbd5e1;background:#fff;color:#475569;transition:all 0.2s}
+.gc-btn:hover{background:#f1f5f9;border-color:#94a3b8}
+.gc-btn.gc-expand{background:#0d2137;color:#fff;border-color:#0d2137}
+.gc-btn.gc-expand:hover{background:#1a3f5c}
+.gc-btn.gc-collapse{background:#f1f5f9;color:#475569}
+.gc-btn.gc-collapse:hover{background:#e2e8f0}
+.gc-btn.gc-risk{background:#fffbeb;color:#92400e;border-color:#fbbf24}
+.gc-btn.gc-risk:hover{background:#fef3c7}
+.gc-btn.gc-active{box-shadow:0 0 0 2px rgba(0,0,0,0.12);border-color:#0d2137}
+.sticky-bar{position:static;top:0;z-index:100;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,0.04)}
+.sticky-bar{position:static}
+.region-block{background:#fff;margin:14px 0;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.region-header{padding:12px 20px;font-size:15px;font-weight:700;color:#1a3a5c;border-bottom:2px solid #93c5fd;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:#eff6ff;border-left:4px solid #3b82f6;border-top:2px solid #93c5fd;border-right:2px solid #93c5fd;border-radius:4px 4px 0 0}
+.region-header:hover{background:#dbeafe}
+.region-header .arrow{transition:transform 0.25s;font-size:12px;color:#94a3b8}
+.region-header .arrow.collapsed{transform:rotate(-90deg)}
+.region-body{overflow:hidden;transition:max-height 0.4s ease}
+.region-body.collapsed{max-height:0!important}
+.prov-block{margin:0;border-bottom:1px solid #f1f5f9}
+.prov-block:last-child{border-bottom:none}
+.prov-header{position:sticky;top:0;z-index:9;background:#f8fafc;padding:10px 20px 10px 36px;font-size:13px;font-weight:700;color:#1a3a5c;display:flex;align-items:center;gap:6px;cursor:pointer;user-select:none}
+.prov-header:hover{background:#f1f5f9}
+.prov-header .arrow{transition:transform 0.25s;font-size:11px;color:#94a3b8;margin-right:4px}
+.prov-header .arrow.collapsed{transform:rotate(-90deg)}
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:7px;padding:10px 16px 10px 36px;overflow:hidden;transition:max-height 0.35s ease}
+.city-grid.collapsed{max-height:0;padding-top:0;padding-bottom:0}
+.ptag{font-size:10px;padding:1px 7px;border-radius:10px;font-weight:600;white-space:nowrap;margin-left:4px}
+.ptag-ext{background:#ffebee;color:#c62828}
+.ptag-rain{background:#fff3e0;color:#e65100}
+.ptag-hot{background:#b71c1c;color:#fff}
+.ptag-cold{background:#e8eaf6;color:#283593}
+.ptag-today{background:#e3f2fd;color:#1565c0}
+.alert-dot{width:8px;height:8px;border-radius:50%;margin-left:auto;flex-shrink:0}
+.alert-dot.red{background:#ef4444}
+.alert-dot.orange{background:#f59e0b}
+.alert-dot.blue{background:#0ea5e9}
+.prov-summary{display:flex;gap:6px;margin-left:auto;flex-wrap:wrap}
+.city-card{border:1px solid #e8ecf2;border-radius:8px;padding:8px 10px;position:relative;transition:box-shadow 0.2s}
+.city-card:hover{box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.city-card.extreme{border-color:#ef4444;background:#fefafa}
+.city-card.rain-alert{border-color:#f59e0b;background:#fffef5}
+.city-card .city-name{font-weight:700;font-size:13px;margin-bottom:5px;display:flex;align-items:center;gap:3px;flex-wrap:wrap}
+.city-card .badge{font-size:10px;padding:1px 6px;border-radius:8px;font-weight:600;display:inline-block;line-height:1.6;margin:0 1px}
+.tag-pill{font-size:10px;padding:2px 7px;border-radius:4px;font-weight:600;display:inline-block;line-height:1.5;margin:1px;white-space:nowrap;text-align:center}
+.tag-ext{background:#ef4444;color:#fff;border:none}
+.tag-hist{background:#e0f2fe;color:#0369a1;border:1px solid #7dd3fc}
+.tag-rain{background:#f59e0b;color:#fff;border:none}
+.tag-hot{background:#b71c1c;color:#fff;border:none}
+.tag-cold{background:#6366f1;color:#fff;border:none}
+.city-card .row-now{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.city-card .temp-big{font-size:22px;font-weight:700;color:#1a1a2e}
+.city-card .temp-range{font-size:11px;color:#64748b;white-space:nowrap}
+.city-card .detail{font-size:11px;color:#64748b;margin-top:3px;line-height:1.5}
+.city-card .fc-mini{display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-top:6px;padding-top:6px;border-top:1px dashed #e8ecf2;font-size:10px;color:#475569}
+.city-card .fc-day{background:#f8fafc;padding:3px 5px;border-radius:4px;text-align:center;white-space:nowrap;line-height:1.5}
+.alert-section{background:#fff;margin-top:0}
+.alert-header{background:#fffbeb;padding:12px 24px;border-bottom:2px solid #fbbf24;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;border-left:4px solid #f59e0b;border-top:2px solid #fbbf24;border-right:2px solid #fbbf24;border-radius:4px 4px 0 0;margin-top:10px}
+.alert-header:hover{background:#fef3c7}
+.alert-header .arrow{transition:transform 0.25s;font-size:12px;color:#b45309}
+.alert-header .arrow.collapsed{transform:rotate(-90deg)}
+.alert-header h2{font-size:16px;color:#b45309}
+.alert-body{overflow:hidden;transition:max-height 0.35s ease}
+.alert-body.collapsed{max-height:0!important}
+.alert-list{padding:12px 24px}
+.warzone-summary{background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:10px 16px;margin-bottom:12px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.warzone-summary .ws-title{font-size:12px;font-weight:700;color:#1a3a5c}
+.warzone-tag{font-size:11px;padding:3px 10px;border-radius:14px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all 0.2s}
+.warzone-tag:hover{opacity:0.8}
+.warzone-tag.tag-ext{background:#ffebee;color:#c62828;border-color:#fecaca}
+.warzone-tag.tag-rain{background:#fff3e0;color:#e65100;border-color:#fde68a}
+.warzone-tag.tag-hot{background:#b71c1c;color:#fff;border-color:#b71c1c}
+.warzone-tag.active{box-shadow:0 0 0 3px rgba(0,0,0,0.25);transform:scale(1.05);border-width:2px}
+.warzone-tag.tag-ext.active{background:#ef4444;color:#fff;border-color:#ef4444}
+.warzone-tag.tag-rain.active{background:#f59e0b;color:#fff;border-color:#f59e0b}
+.warzone-tag.tag-hot.active{background:#7f0000;color:#fff;border-color:#7f0000}
+.filter-bar{display:flex;gap:6px;padding:6px 0;flex-wrap:wrap;align-items:center}
+.filter-bar .f-label{font-size:11px;color:#64748b;font-weight:600;margin-right:4px}
+.filter-tag{font-size:11px;padding:3px 10px;border-radius:12px;font-weight:600;cursor:pointer;border:1px solid transparent;transition:all 0.2s;user-select:none}
+.filter-tag:hover{opacity:0.85}
+.filter-tag.active{box-shadow:0 0 0 2px rgba(0,0,0,0.1)}
+.filter-tag.tag-ext{background:#ffebee;color:#c62828;border-color:#fecaca}
+.filter-tag.tag-ext.active{background:#ef4444;color:#fff;border-color:#ef4444}
+.filter-tag.tag-rain{background:#fff3e0;color:#e65100;border-color:#fde68a}
+.filter-tag.tag-rain.active{background:#f59e0b;color:#fff;border-color:#f59e0b}
+.filter-tag.tag-hot{background:#b71c1c;color:#fff;border-color:#b71c1c}
+.filter-tag.tag-hot.active{background:#7f0000;color:#fff;border-color:#7f0000}
+.filter-tag.tag-reset{background:#f1f5f9;color:#475569;border-color:#cbd5e1}
+.filter-tag.tag-reset.active{background:#475569;color:#fff;border-color:#475569}
+.filter-tag .tag-count{font-size:10px;opacity:0.8;margin-left:2px}
+.view-toggle{display:flex;gap:4px;margin-left:auto}
+.view-toggle .vt-btn{font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid #cbd5e1;background:#fff;color:#64748b;cursor:pointer;font-weight:600;transition:all 0.2s}
+.view-toggle .vt-btn:hover{background:#f1f5f9}
+.view-toggle .vt-btn.active{background:#0d2137;color:#fff;border-color:#0d2137}
+.alert-prov-block{margin:8px 0;border:1px solid #e8ecf2;border-radius:8px;overflow:hidden}
+.alert-prov-header{padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer;user-select:none;display:flex;align-items:center;gap:6px}
+.alert-prov-header:hover{opacity:0.85}
+.alert-prov-header.ap-ext{background:#fef2f2;color:#c62828;border-bottom:1px solid #fecaca}
+.alert-prov-header.ap-rain{background:#fffbeb;color:#b45309;border-bottom:1px solid #fde68a}
+.alert-prov-header.ap-temp{background:#f0f9ff;color:#0369a1;border-bottom:1px solid #bae6fd}
+.alert-prov-header .ap-title{font-size:13px;font-weight:700}
+.alert-prov-header .ap-count{font-size:11px;font-weight:400;opacity:0.7}
+.alert-prov-body{padding:6px 10px;font-size:12px;line-height:1.7;overflow:hidden;transition:max-height 0.3s ease}
+.alert-prov-body.collapsed{max-height:0!important;padding-top:0;padding-bottom:0}
+.alert-city-row{display:flex;align-items:center;gap:6px;padding:4px 8px;margin:2px 0;border-radius:6px;font-size:12px;transition:background 0.15s;flex-wrap:wrap}
+.alert-city-row:hover{background:#f8fafc}
+.alert-city-row .ac-icon{font-size:14px;flex-shrink:0}
+.alert-city-row .ac-name{font-weight:700;color:#1a1a2e;min-width:44px}
+.alert-city-row .ac-extreme{display:inline-flex;align-items:center;gap:3px;background:#fef2f2;color:#dc2626;padding:1px 6px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid #fecaca}
+.alert-city-row .ac-rain{display:inline-flex;align-items:center;gap:3px;background:#fff7ed;color:#c2410c;padding:1px 6px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid #fed7aa}
+.alert-city-row .ac-hot{display:inline-flex;align-items:center;gap:3px;background:#b71c1c;color:#fff;padding:1px 6px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid #b71c1c}
+.alert-city-row .ac-cold{display:inline-flex;align-items:center;gap:3px;background:#eef2ff;color:#4338ca;padding:1px 6px;border-radius:4px;font-size:11px;font-weight:600;border:1px solid #c7d2fe}
+.alert-city-row .ac-detail{font-size:11px;color:#475569;margin-left:4px}
+.alert-city-row.filter-hidden{display:none}
+.alert-city-row.filter-group-summary{background:#f1f5f9;color:#64748b;font-size:11px;cursor:pointer;justify-content:center;gap:4px}
+.alert-city-row.filter-group-summary:hover{background:#e2e8f0}
+.official-alarm{background:#fff;margin-top:14px;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.official-alarm-header{background:#fef2f2;padding:12px 24px;border-bottom:2px solid #ef4444;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;border-left:4px solid #ef4444;border-top:2px solid #ef4444;border-right:2px solid #ef4444;border-radius:4px 4px 0 0;margin-top:10px}
+.official-alarm-header:hover{background:#fee2e2}
+.official-alarm-header .arrow{transition:transform 0.25s;font-size:12px;color:#b91c1c}
+.official-alarm-header .arrow.collapsed{transform:rotate(-90deg)}
+.official-alarm-header h2{font-size:16px;color:#b91c1c}
+.official-alarm-body{overflow:hidden;transition:max-height 0.35s ease}
+.official-alarm-body.collapsed{max-height:0!important}
+.alarm-list2{padding:12px 24px;display:flex;flex-direction:column;gap:10px}
+.alarm-card{display:flex;border-radius:8px;overflow:hidden;border:1px solid #e8ecf2;transition:box-shadow 0.2s}
+.alarm-card:hover{box-shadow:0 2px 8px rgba(0,0,0,0.06)}
+.alarm-card .alarm-bar{width:6px;flex-shrink:0}
+.alarm-card .alarm-bar.level-red{background:#ef4444}
+.alarm-card .alarm-bar.level-orange{background:#f97316}
+.alarm-card .alarm-bar.level-yellow{background:#eab308}
+.alarm-card .alarm-bar.level-blue{background:#3b82f6}
+.alarm-card .alarm-body{flex:1;padding:10px 14px;min-width:0}
+.alarm-card .alarm-header-row{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.alarm-card .alarm-header-row .alarm-link{font-size:10px;margin-left:auto;white-space:nowrap;text-decoration:none}
+.alarm-card .alarm-region{font-weight:700;font-size:14px;color:#1a1a2e}
+.alarm-card .alarm-time{font-size:11px;color:#64748b;white-space:nowrap}
+.alarm-card .alarm-type-badge{font-size:11px;padding:1px 8px;border-radius:4px;font-weight:600;white-space:nowrap}
+.alarm-card .alarm-type-badge.level-red{background:#fef2f2;color:#dc2626;border:1px solid #fecaca}
+.alarm-card .alarm-type-badge.level-orange{background:#fff7ed;color:#ea580c;border:1px solid #fed7aa}
+.alarm-card .alarm-type-badge.level-yellow{background:#fefce8;color:#ca8a04;border:1px solid #fef08a}
+.alarm-card .alarm-type-badge.level-blue{background:#eff6ff;color:#2563eb;border:1px solid #bfdbfe}
+.alarm-card .alarm-meta{display:flex;gap:12px;font-size:11px;color:#64748b;margin-bottom:4px;flex-wrap:wrap}
+.alarm-card .alarm-meta span{display:inline-flex;align-items:center;gap:3px}
+.alarm-card .alarm-risk{font-size:12px;color:#374151;line-height:1.6;padding:5px 8px;background:#f8fafc;border-radius:4px;margin-top:4px}
+.alarm-card .alarm-business{font-size:11px;color:#475569;padding:4px 8px;margin-top:4px;background:#fffbeb;border-radius:4px;border-left:3px solid #f59e0b}
+.alarm-card.level-red{order:0}.alarm-card.level-orange{order:1}.alarm-card.level-yellow{order:2}.alarm-card.level-blue{order:3}
+.glossary{background:#fff;margin-top:14px;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.glossary-header{padding:12px 20px;font-size:14px;font-weight:700;background:#f8fafc;border-bottom:1px solid #e8ecf2;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none}
+.glossary-header:hover{background:#f1f5f9}
+.glossary-header .arrow{transition:transform 0.25s;font-size:11px;color:#94a3b8}
+.glossary-header .arrow.collapsed{transform:rotate(-90deg)}
+.glossary-body{padding:14px 20px;font-size:12px;color:#475569;line-height:1.8;overflow:hidden;transition:max-height 0.35s ease}
+.glossary-body.collapsed{max-height:0!important;padding-top:0;padding-bottom:0}
+.glossary-body dt{font-weight:700;color:#1a1a2e;margin-top:8px}
+.glossary-body dd{margin-left:16px;margin-bottom:4px}
+.footer{text-align:center;padding:18px;font-size:11px;color:#94a3b8;line-height:1.6}
+.footer strong{color:#64748b}
+.region-header{position:sticky;top:0;z-index:8;background:#fafbfc}
+.alert-header{position:sticky;top:0;z-index:10;background:#fffbeb}
+.btn-export{position:fixed;bottom:20px;right:20px;z-index:9999;padding:10px 20px;background:#0d2137;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,0.2);transition:background 0.2s}
+.btn-export:hover{background:#1a3f5c}
+/* 过期预警弹窗 */
+.alarm-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center}
+.alarm-modal-overlay.active{display:flex}
+.alarm-modal{background:#fff;border-radius:12px;padding:28px 32px;max-width:420px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.2);text-align:center}
+.alarm-modal .modal-icon{font-size:48px;margin-bottom:12px}
+.alarm-modal .modal-title{font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:10px}
+.alarm-modal .modal-desc{font-size:13px;color:#64748b;line-height:1.6;margin-bottom:20px}
+.alarm-modal .modal-btn{display:inline-block;padding:8px 24px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600;transition:background 0.2s}
+.alarm-modal .modal-btn:hover{background:#1d4ed8}
+/* 正常打开链接的弹窗 - 短暂提示后自动跳转 */
+.alarm-modal .modal-btn-secondary{display:inline-block;margin-left:8px;padding:8px 24px;background:#e2e8f0;color:#475569;border:none;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600;transition:background 0.2s}
+.alarm-modal .modal-btn-secondary:hover{background:#cbd5e1}
+.capital-section{background:#fff;margin:14px 0;border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+.capital-header{padding:12px 20px;font-size:15px;font-weight:700;color:#1e3a5f;border-bottom:2px solid #93c5fd;display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;background:#eff6ff;border-left:4px solid #3b82f6;border-top:2px solid #93c5fd;border-right:2px solid #93c5fd;border-radius:4px 4px 0 0}
+.capital-header:hover{background:#dbeafe}
+.capital-header .arrow{transition:transform 0.25s;font-size:12px;color:#94a3b8}
+.capital-header .arrow.collapsed{transform:rotate(-90deg)}
+
+/* 过期预警弹窗 */
+.alarm-modal-overlay{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:10000;align-items:center;justify-content:center}
+.alarm-modal-overlay.active{display:flex}
+.alarm-modal{background:#fff;border-radius:12px;padding:28px 32px;max-width:420px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.2);text-align:center}
+.alarm-modal .modal-icon{font-size:48px;margin-bottom:12px}
+.alarm-modal .modal-title{font-size:16px;font-weight:700;color:#1a1a2e;margin-bottom:10px}
+.alarm-modal .modal-desc{font-size:13px;color:#64748b;line-height:1.6;margin-bottom:20px}
+.alarm-modal .modal-btn{display:inline-block;padding:8px 24px;background:#2563eb;color:#fff;border:none;border-radius:6px;font-size:13px;cursor:pointer;font-weight:600;transition:background 0.2s}
+.alarm-modal .modal-btn:hover{background:#1d4ed8}
+.capital-body{overflow:hidden;transition:max-height 0.4s ease}
+.capital-body.collapsed{max-height:0!important}
+.capital-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px 16px}
+.capital-card{display:flex;border:1px solid #e8ecf2;border-radius:8px;padding:0;min-height:80px;overflow:hidden}
+.capital-card.capital-rain{border-color:#f59e0b;background:#fffef5}
+.capital-card.capital-extreme{border-color:#ef4444;background:#fefafa}
+.capital-left{width:80px;min-width:80px;font-size:13px;font-weight:700;color:#1a3a5c;display:flex;flex-direction:column;align-items:center;justify-content:center;border-right:1px solid #e8ecf2;background:#f8fafc;line-height:1.4}
+.capital-left .cl-prov{font-size:13px;font-weight:700;color:#64748b}
+.capital-right{flex:1;display:flex;gap:0;min-width:0}
+.capital-fc{flex:1;padding:8px 10px;text-align:center;font-size:12px;line-height:1.6}
+.capital-fc+.capital-fc{border-left:1px solid #e8ecf2}
+.capital-fc .cfc-date{font-weight:700;color:#1565c0;font-size:13px;margin-bottom:5px}
+.capital-fc .cfc-row{display:flex;align-items:center;justify-content:center;gap:4px;font-size:15px;font-weight:600;color:#1a1a2e;flex-wrap:nowrap}
+.capital-fc .cfc-row .cfc-icon{font-size:22px;flex-shrink:0}
+.capital-fc .cfc-row .cfc-desc{color:#475569;white-space:nowrap;flex-shrink:0}
+.capital-fc .cfc-row .cfc-temp{color:#1a1a2e;white-space:nowrap;flex-shrink:0;margin-left:4px}
+@media(max-width:640px){.city-grid{grid-template-columns:1fr}.capital-grid{grid-template-columns:1fr}}
+</style><script id="cityData" type="application/json">{"四川省":["成都","绵阳","德阳","宜宾","南充","泸州","达州","自贡","攀枝花","广元","遂宁","内江","乐山","眉山","广安","雅安","巴中","资阳","凉山","阿坝","甘孜"],"重庆市":["渝中","江北","沙坪坝","九龙坡","南岸","大渡口","北碚","渝北","巴南","万州","涪陵","黔江","长寿","江津","合川","永川","南川","綦江","大足","璧山","铜梁","潼南","荣昌","开州","梁平","武隆"],"云南省":["昆明","曲靖","大理","丽江","红河","西双版纳","玉溪","保山","昭通","普洱","临沧","楚雄","文山","德宏","怒江","迪庆"],"贵州省":["贵阳","遵义","毕节","六盘水","铜仁","安顺","黔西南","黔东南","黔南"],"西藏":["拉萨","日喀则","昌都","林芝","那曲","山南","阿里"],"青海省":["西宁","海东","玉树","海西","海北","黄南","海南","果洛"],"宁夏":["银川","石嘴山","吴忠","固原","中卫"],"甘肃省":["兰州","天水","酒泉","张掖","陇南","嘉峪关","金昌","白银","武威","平凉","庆阳","定西","临夏","甘南"],"新疆":["乌鲁木齐","克拉玛依","喀什","哈密","伊犁","库尔勒","吐鲁番","昌吉","博尔塔拉","阿克苏","克孜勒苏","和田","塔城","阿勒泰"],"陕西省":["西安","宝鸡","咸阳","渭南","延安","汉中","铜川","榆林","安康","商洛"]}</script></head><body><div class="container"><div class="sticky-bar">
+<div class="header">
+  <h1>东鹏饮料 · 华西战区天气预报<span class="cma-badge">中央气象台</span></h1>
+  <div class="sub">四川 · 重庆 · 云南 · 贵州 · 西藏 · 青海 · 宁夏 · 甘肃 · 新疆 · 陕西</div>
+  <div class="update-time">2026年07月10日 （每日 8:30 推送 | 数据源: 中央气象台 www.nmc.cn）</div>
+</div>
+<div class="global-controls">
+  <span class="gc-btn gc-active" id="toggleExpandBtn" onclick="toggleExpandCollapse()" style="font-weight:700;">展开/收起</span>
+</div>
+<div class="global-controls" style="border-top:0;padding-top:0;box-shadow:none;">
+  <span class="gc-label" style="font-weight:700;">业务专栏：</span>
+  <span class="gc-btn" data-mode="alarm" onclick="gcFilter('alarm')">🚨 灾害警报</span>
+  <span class="gc-btn" data-mode="alert7" onclick="gcFilter('alert7')">⚠ 七日风险预判</span>
+  <span class="gc-btn" data-mode="capital" onclick="gcFilter('capital')">🏔 十省主城</span>
+  <span class="gc-btn" data-mode="region" onclick="gcFilter('region')">📍 地市详报</span>
+</div>
+<div class="global-controls" style="border-top:0;padding-top:0;box-shadow:none;">
+  <span class="gc-label">省份筛选：</span>
+  <select class="prov-select" onchange="gcProvFilter(this)" style="font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid #cbd5e1;background:#fff;color:#475569;font-weight:600;cursor:pointer;"><option value="all">全部省份</option><option value="四川省">四川</option><option value="重庆市">重庆</option><option value="云南省">云南</option><option value="贵州省">贵州</option><option value="西藏">西藏</option><option value="青海省">青海</option><option value="宁夏">宁夏</option><option value="甘肃省">甘肃</option><option value="新疆">新疆</option><option value="陕西省">陕西</option></select><select id="citySelect" onchange="gcCityFilter(this)" style="display:none;font-size:11px;padding:4px 10px;border-radius:6px;border:1px solid #cbd5e1;background:#fff;color:#475569;font-weight:600;cursor:pointer;margin-left:6px;"><option value="all">全部城市</option></select>
+</div>
+</div>
+<div class="official-alarm">
+<div class="official-alarm-header" onclick="toggleOfficialAlarm(this)">
+  <span class="arrow">▼</span>
+  <span style="font-size:18px;">🚨</span>
+  <h2>灾害警报</h2>
+  <span style="font-size:11px;color:#991b1b;">数据来源：国家气象中心 (NMC)</span>
+</div>
+<div class="official-alarm-body" style="max-height:8000px;">
+<div class="alarm-list2"><div class="alarm-card level-orange">
+  <div class="alarm-bar level-orange"></div>
+  <div class="alarm-body">
+    <div class="alarm-header-row">
+      <span class="alarm-region">🟠 四川省·自贡</span>
+      <span class="alarm-time">26年07月10日07时</span>
+      <span class="alarm-type-badge level-orange" style="padding:2px 12px;font-size:13px;font-weight:800;border-radius:5px;">高温·橙色</span>
+      <a href="javascript:void(0)" onclick="checkAlarmLink(event,'https://www.nmc.cn/publish/alarm/51030041600000_20260710073000.html')" style="margin-left:auto;font-size:11px;color:#2563eb;text-decoration:underline;white-space:nowrap;">详情</a>
+    </div><div style="font-size:12px;color:#64748b;margin:3px 0;font-weight:600;">🕒 <b>预计影响时段：</b>今天白天</div><div class="alarm-risk">📌 <b>重点区域：</b>自贡市、大安区、沿滩区、自流井区、各乡镇</div><div class="alarm-business"><div>⚡ 户外路演/堆头活动需暂停</div><div>🥤 冰柜需求激增，关注库存</div><div>🟠 高度关注，建议调整当日铺货路线</div></div>  </div>
+</div><div class="alarm-card level-yellow">
+  <div class="alarm-bar level-yellow"></div>
+  <div class="alarm-body">
+    <div class="alarm-header-row">
+      <span class="alarm-region">🟡 陕西省·榆林</span>
+      <span class="alarm-time">26年07月10日07时</span>
+      <span class="alarm-type-badge level-yellow" style="padding:2px 12px;font-size:13px;font-weight:800;border-radius:5px;">大风·黄色</span>
+      <a href="javascript:void(0)" onclick="checkAlarmLink(event,'https://www.nmc.cn/publish/alarm/61080041600000_20260710075258.html')" style="margin-left:auto;font-size:11px;color:#2563eb;text-decoration:underline;white-space:nowrap;">详情</a>
+    </div><div style="font-size:12px;color:#64748b;margin:3px 0;font-weight:600;">🕒 <b>预计影响时段：</b>未来6小时</div><div class="alarm-risk">📌 <b>重点区域：</b>榆林市、内下述地区、榆阳区、横山区、神木市</div><div class="alarm-business"><div>🚛 物流配送延迟/中断</div><div>⚡ 户外路演/堆头活动需暂停</div><div>🌪️ 户外广告/帐篷堆头安全风险</div><div>🧊 冰雹可能损坏终端冰柜/招牌</div></div>  </div>
+</div><div class="alarm-card level-blue">
+  <div class="alarm-bar level-blue"></div>
+  <div class="alarm-body">
+    <div class="alarm-header-row">
+      <span class="alarm-region">🔵 宁夏·石嘴山</span>
+      <span class="alarm-time">26年07月10日04时</span>
+      <span class="alarm-type-badge level-blue" style="padding:2px 12px;font-size:13px;font-weight:800;border-radius:5px;">暴雨·蓝色</span>
+      <a href="javascript:void(0)" onclick="checkAlarmLink(event,'https://www.nmc.cn/publish/alarm/64020041600000_20260710044456.html')" style="margin-left:auto;font-size:11px;color:#2563eb;text-decoration:underline;white-space:nowrap;">详情</a>
+    </div><div style="font-size:12px;color:#64748b;margin:3px 0;font-weight:600;">🕒 <b>预计影响时段：</b>预计未来12小时</div><div class="alarm-risk">📌 <b>重点区域：</b>石嘴山市、平罗县、及惠农区、礼和乡、庙台乡</div><div class="alarm-business"><div>🚛 物流配送延迟/中断</div></div>  </div>
+</div></div>
+</div>
+</div>
+<div class="alert-section">
+<div class="alert-header" onclick="toggleAlert(this)">
+  <span class="arrow collapsed">▼</span>
+  <span style="font-size:18px;">⚠️</span>
+  <h2>七日风险预判</h2>
+  <span style="font-size:11px;color:#92400e;">按省份分组，点击战区总览标签可快速筛选</span>
+</div>
+<div class="alert-body collapsed" style="max-height:10000px;">
+<div class="alert-list"><div class="warzone-summary"><span class="ws-title">华西战区总览</span><span class="warzone-tag tag-ext" onclick="filterWarzoneTag(this,'extreme')">⚡极端 3城</span><span class="warzone-tag tag-rain" onclick="filterWarzoneTag(this,'rain')">🌧连续降雨 17城</span><span class="warzone-tag tag-hot" onclick="filterWarzoneTag(this,'hot')">🔥高温 47城</span></div><div style="font-size:13px;font-weight:700;color:#475569;padding:8px 0 4px;margin-top:4px;">📍 华西战区</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-ext" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">四川省</span> <span class="ap-count">（14城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">14</span></span><span class="filter-tag tag-ext" onclick="filterAlert(this,'extreme')">⚡极端 <span class="tag-count">1</span></span><span class="filter-tag tag-hot" onclick="filterAlert(this,'hot')">🔥高温 <span class="tag-count">14</span></span></div>
+<div class="alert-city-row" data-risk="extreme hot" data-tier="0"><span class="ac-icon">☀️</span><span class="ac-name">自贡</span><span class="ac-detail"><span class="ac-extreme">🚨2026-07-10高温预警信号·🟠橙</span> <span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">乐山</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">内江</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">南充</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">宜宾</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">巴中</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">广元</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">广安</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">泸州</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">眉山</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☁️</span><span class="ac-name">绵阳</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">资阳</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">达州</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">遂宁</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-temp" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">重庆市</span> <span class="ap-count">（21城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">21</span></span><span class="filter-tag tag-hot" onclick="filterAlert(this,'hot')">🔥高温 <span class="tag-count">21</span></span></div>
+<div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">万州</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">九龙坡</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">北碚</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">南岸</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">南川</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">合川</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">大渡口</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">开州</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">武隆</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">永川</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">江北</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">江津</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">沙坪坝</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">涪陵</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">渝中</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">潼南</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">璧山</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">綦江</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">荣昌</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">铜梁</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">长寿</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-rain" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">云南省</span> <span class="ap-count">（4城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">4</span></span><span class="filter-tag tag-rain" onclick="filterAlert(this,'rain')">🌧连雨 <span class="tag-count">4</span></span></div>
+<div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">☁️</span><span class="ac-name">普洱</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">☀️</span><span class="ac-name">西双版纳</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="2"><span class="ac-icon">☀️</span><span class="ac-name">保山</span><span class="ac-detail"><span class="ac-rain">🌧连续6天（2026-07-11~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="2"><span class="ac-icon">🌦️</span><span class="ac-name">德宏</span><span class="ac-detail"><span class="ac-rain">🌧连续5天</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-temp" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">贵州省</span> <span class="ap-count">（1城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">1</span></span><span class="filter-tag tag-hot" onclick="filterAlert(this,'hot')">🔥高温 <span class="tag-count">1</span></span></div>
+<div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">铜仁</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-rain" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">西藏</span> <span class="ap-count">（6城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">6</span></span><span class="filter-tag tag-rain" onclick="filterAlert(this,'rain')">🌧连雨 <span class="tag-count">6</span></span></div>
+<div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">🌦️</span><span class="ac-name">山南</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">🌦️</span><span class="ac-name">拉萨</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">☀️</span><span class="ac-name">日喀则</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">🌦️</span><span class="ac-name">昌都</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">🌦️</span><span class="ac-name">林芝</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">☁️</span><span class="ac-name">那曲</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-rain" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">青海省</span> <span class="ap-count">（6城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">6</span></span><span class="filter-tag tag-rain" onclick="filterAlert(this,'rain')">🌧连雨 <span class="tag-count">6</span></span></div>
+<div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">🌦️</span><span class="ac-name">果洛</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">☀️</span><span class="ac-name">海东</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="2"><span class="ac-icon">☁️</span><span class="ac-name">海北</span><span class="ac-detail"><span class="ac-rain">🌧连续5天</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="2"><span class="ac-icon">☀️</span><span class="ac-name">海南</span><span class="ac-detail"><span class="ac-rain">🌧连续5天</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="2"><span class="ac-icon">☀️</span><span class="ac-name">西宁</span><span class="ac-detail"><span class="ac-rain">🌧连续5天</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="2"><span class="ac-icon">☀️</span><span class="ac-name">黄南</span><span class="ac-detail"><span class="ac-rain">🌧连续5天</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-ext" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">宁夏</span> <span class="ap-count">（1城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">1</span></span><span class="filter-tag tag-ext" onclick="filterAlert(this,'extreme')">⚡极端 <span class="tag-count">1</span></span></div>
+<div class="alert-city-row" data-risk="extreme" data-tier="0"><span class="ac-icon">🌦️</span><span class="ac-name">石嘴山</span><span class="ac-detail"><span class="ac-extreme">🚨2026-07-10暴雨预警信号·🔵蓝</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-temp" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">新疆</span> <span class="ap-count">（5城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">5</span></span><span class="filter-tag tag-hot" onclick="filterAlert(this,'hot')">🔥高温 <span class="tag-count">5</span></span></div>
+<div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">克拉玛依</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">吐鲁番</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">哈密</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">库尔勒</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">昌吉</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div></div>
+</div>
+<div class="alert-prov-block">
+<div class="alert-prov-header ap-ext" onclick="toggleAlertProv(this)"><span class="arrow">▼</span> <span class="ap-title">陕西省</span> <span class="ap-count">（8城）</span></div>
+<div class="alert-prov-body">
+<div class="filter-bar">
+  <span class="f-label">筛选：</span>
+  <span class="filter-tag tag-reset active" onclick="filterAlert(this,'all')">全部 <span class="tag-count">8</span></span><span class="filter-tag tag-ext" onclick="filterAlert(this,'extreme')">⚡极端 <span class="tag-count">1</span></span><span class="filter-tag tag-rain" onclick="filterAlert(this,'rain')">🌧连雨 <span class="tag-count">1</span></span><span class="filter-tag tag-hot" onclick="filterAlert(this,'hot')">🔥高温 <span class="tag-count">6</span></span></div>
+<div class="alert-city-row" data-risk="extreme" data-tier="0"><span class="ac-icon">☀️</span><span class="ac-name">榆林</span><span class="ac-detail"><span class="ac-extreme">🚨2026-07-10雷雨大风预警信号·🟡黄</span></span></div><div class="alert-city-row" data-risk="rain" data-tier="1"><span class="ac-icon">☀️</span><span class="ac-name">商洛</span><span class="ac-detail"><span class="ac-rain">🌧连续7天（2026-07-10~2026-07-16）</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">咸阳</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">安康</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">宝鸡</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">汉中</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">渭南</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div><div class="alert-city-row" data-risk="hot" data-tier="3"><span class="ac-icon">☀️</span><span class="ac-name">西安</span><span class="ac-detail"><span class="ac-hot">🔥≥38°C</span></span></div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="capital-section"><div class="capital-header" onclick="toggleCapital(this)"><span class="arrow">▼</span> 🏔 十省主城</div>
+<div class="capital-body">
+<div class="capital-grid">
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">四川</span>成都</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">☁️</span><span class="cfc-desc">阴</span><span class="cfc-temp">35.0°/25.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">⛈️</span><span class="cfc-desc">雷阵雨</span><span class="cfc-temp">34.0°/24.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">重庆</span>渝中</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">晴</span><span class="cfc-temp">39.0°/29.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">38.0°/27.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">云南</span>昆明</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">29.0°/19.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">27.0°/19.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">贵州</span>贵阳</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">30.0°/22.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">30.0°/22.0°</span></div></div></div>
+  </div>
+  <div class="capital-card capital-rain">
+    <div class="capital-left"><span class="cl-prov">西藏</span>拉萨</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">🌦️</span><span class="cfc-desc">小雨</span><span class="cfc-temp">22.0°/14.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">🌦️</span><span class="cfc-desc">小雨</span><span class="cfc-temp">23.0°/16.0°</span></div></div></div>
+  </div>
+  <div class="capital-card capital-rain">
+    <div class="capital-left"><span class="cl-prov">青海</span>西宁</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">🌦️</span><span class="cfc-desc">小雨</span><span class="cfc-temp">20.0°/14.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">🌧️</span><span class="cfc-desc">中雨</span><span class="cfc-temp">17.0°/11.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">宁夏</span>银川</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">⛈️</span><span class="cfc-desc">雷阵雨</span><span class="cfc-temp">26.0°/19.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">🌦️</span><span class="cfc-desc">小雨</span><span class="cfc-temp">24.0°/16.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">甘肃</span>兰州</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">🌦️</span><span class="cfc-desc">小到中雨</span><span class="cfc-temp">24.0°/19.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">🌦️</span><span class="cfc-desc">小雨</span><span class="cfc-temp">22.0°/18.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">新疆</span>乌鲁木齐</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">30.0°/20.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">晴</span><span class="cfc-temp">32.0°/21.0°</span></div></div></div>
+  </div>
+  <div class="capital-card">
+    <div class="capital-left"><span class="cl-prov">陕西</span>西安</div>
+    <div class="capital-right"><div class="capital-fc"><div class="cfc-date">07-10</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">36.0°/25.0°</span></div></div><div class="capital-fc"><div class="cfc-date">07-11</div><div class="cfc-row"><span class="cfc-icon">☀️</span><span class="cfc-desc">多云</span><span class="cfc-temp">36.0°/24.0°</span></div></div></div>
+  </div>
+</div>
+</div>
+</div>
+<div class="region-block">
+<div class="region-header" onclick="toggleRegion(this)">
+  <span class="arrow collapsed">▼</span> 地市详报 — 10省 130城
+</div>
+<div class="region-body collapsed" style="max-height:30000px;">
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 四川省（21城）<span class="ptag ptag-ext">⚡极端 1城</span><span class="ptag ptag-hot">🔥高温 14城</span><span class="alert-dot red" title="极端天气"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">☀️ 成都 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.6°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 35.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 73.0% &nbsp;|&nbsp; 东北风 0.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>34.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>35.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>37.0°/25.0°</span><span class="fc-day">07-15<br>🌦️ 阵雨<br>33.0°/25.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☁️ 绵阳 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.3°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 36.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 69.0% &nbsp;|&nbsp; 东北风 2.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>35.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>36.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 德阳 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">27.8°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 35.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 91.0% &nbsp;|&nbsp; 西北风 1.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>34.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>36.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-14<br>🌦️ 阵雨<br>37.0°/26.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/25.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 宜宾 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.8°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 76.0% &nbsp;|&nbsp; 西南风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>35.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>34.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>38.0°/26.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 南充 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.2°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 37.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 67.0% &nbsp;|&nbsp; 西北风 0.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>38.0°/25.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>36.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>38.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/26.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 泸州 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 60.0% &nbsp;|&nbsp; 东南风 0.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>36.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>34.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/26.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 达州 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.4°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 东北风 0.9公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 晴<br>37.0°/26.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>38.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/28.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>36.0°/26.0°</span></div>
+  </div>
+  <div class="city-card extreme">
+    <div class="city-name">☀️ 自贡 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-ext" title="未来7天内有暴雨/暴雪/雷暴等极端天气，建议调整户外活动安排">极端</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 62.0% &nbsp;|&nbsp; 东南风 2.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>35.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>34.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>38.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 攀枝花 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">25.2°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 34.0° / 23.0°</span>
+    </div>
+    <div class="detail">湿度 77.0% &nbsp;|&nbsp; 东南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>32.0°/22.0°</span><span class="fc-day">07-12<br>🌦️ 阵雨<br>32.0°/22.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>34.0°/22.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>34.0°/24.0°</span><span class="fc-day">07-15<br>🌦️ 阵雨<br>34.0°/22.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>33.0°/22.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 广元 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 35.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 71.0% &nbsp;|&nbsp; 东北风 1.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>36.0°/23.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>36.0°/24.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/24.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/22.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 遂宁 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 37.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 67.0% &nbsp;|&nbsp; 西南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 晴<br>36.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>36.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>38.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 内江 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.7°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 37.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 63.0% &nbsp;|&nbsp; 东南风 1.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>35.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>34.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 乐山 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 东北风 0.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>33.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>35.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>34.0°/26.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 眉山 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.0°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 37.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 69.0% &nbsp;|&nbsp; 东北风 1.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>33.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>35.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>38.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>34.0°/26.0°</span><span class="fc-day">07-16<br>🌦️ 阵雨<br>34.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 广安 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.4°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 38.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 69.0% &nbsp;|&nbsp; 东南风 0.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>37.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>35.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/28.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/26.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☁️ 雅安 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">27.9°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 34.0° / 23.0°</span>
+    </div>
+    <div class="detail">湿度 68.0% &nbsp;|&nbsp; 西南风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>30.0°/23.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>33.0°/24.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>35.0°/25.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>32.0°/24.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>33.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 巴中 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 36.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 68.0% &nbsp;|&nbsp; 东南风 2.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>36.0°/24.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>36.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>🌦️ 阵雨<br>38.0°/25.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>36.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 资阳 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 61.0% &nbsp;|&nbsp; 东北风 1.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>36.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>36.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>38.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>36.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 凉山 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.8°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 34.0° / 21.0°</span>
+    </div>
+    <div class="detail">湿度 73.0% &nbsp;|&nbsp; 东南风 1.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>31.0°/20.0°</span><span class="fc-day">07-12<br>🌦️ 阵雨<br>32.0°/20.0°</span><span class="fc-day">07-13<br>🌦️ 阵雨<br>33.0°/20.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>34.0°/22.0°</span><span class="fc-day">07-15<br>🌦️ 阵雨<br>33.0°/21.0°</span><span class="fc-day">07-16<br>🌦️ 阵雨<br>32.0°/21.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 阿坝 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">13.6°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 22.0° / 12.0°</span>
+    </div>
+    <div class="detail">湿度 96.0% &nbsp;|&nbsp; 东南风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 大雨<br>21.0°/11.0°</span><span class="fc-day">07-12<br>🌦️ 阵雨<br>21.0°/10.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>24.0°/10.0°</span><span class="fc-day">07-14<br>🌦️ 阵雨<br>25.0°/11.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>24.0°/11.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>23.0°/10.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 甘孜 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">12.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 23.0° / 13.0°</span>
+    </div>
+    <div class="detail">湿度 88.0% &nbsp;|&nbsp; 东南风 0.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>22.0°/12.0°</span><span class="fc-day">07-12<br>🌦️ 阵雨<br>21.0°/11.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>25.0°/11.0°</span><span class="fc-day">07-14<br>🌦️ 阵雨<br>26.0°/12.0°</span><span class="fc-day">07-15<br>🌦️ 阵雨<br>24.0°/12.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>24.0°/11.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 重庆市（26城）<span class="ptag ptag-hot">🔥高温 21城</span><span class="alert-dot blue" title="高温"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">☀️ 渝中 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 西北风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/28.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/30.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/29.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>38.0°/29.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 江北 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 西北风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/28.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/30.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/29.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>38.0°/29.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 沙坪坝 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 西北风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/28.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/30.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/29.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>38.0°/29.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 九龙坡 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 西北风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/28.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/30.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/29.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>38.0°/29.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 南岸 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 西北风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/28.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/30.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/29.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>38.0°/29.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 大渡口 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.9°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 63.0% &nbsp;|&nbsp; 东南风 2.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>37.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 北碚 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.9°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 63.0% &nbsp;|&nbsp; 东南风 2.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>37.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>37.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 渝北 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.1°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 61.0% &nbsp;|&nbsp; 东北风 3.5公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>33.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>35.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>37.0°/28.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 巴南 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.1°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 36.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 59.0% &nbsp;|&nbsp; 东南风 2.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>31.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>33.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>36.0°/26.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>32.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>34.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 万州 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.6°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 73.0% &nbsp;|&nbsp; 东北风 2.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>36.0°/25.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>35.0°/26.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/26.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 涪陵 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.4°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 76.0% &nbsp;|&nbsp; 东南风 2.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/25.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>33.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>35.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 黔江 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">24.9°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 34.0° / 23.0°</span>
+    </div>
+    <div class="detail">湿度 90.0% &nbsp;|&nbsp; 东北风 0.9公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>34.0°/23.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>35.0°/23.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>35.0°/24.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>36.0°/24.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>36.0°/23.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>35.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 长寿 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 68.0% &nbsp;|&nbsp; 东北风 2.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>34.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>35.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/28.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 江津 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 39.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 56.0% &nbsp;|&nbsp; 东北风 2.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>34.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/29.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/28.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/28.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 合川 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">33.3°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 30.0°</span>
+    </div>
+    <div class="detail">湿度 55.0% &nbsp;|&nbsp; 东南风 2.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>33.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>35.0°/29.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>35.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 永川 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.4°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 58.0% &nbsp;|&nbsp; 东北风 2.9公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/26.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>33.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>36.0°/29.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>34.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 南川 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 69.0% &nbsp;|&nbsp; 东南风 0.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>37.0°/24.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>31.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>35.0°/26.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/25.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 綦江 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.1°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 63.0% &nbsp;|&nbsp; 东南风 7.4公里/小时 4级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>37.0°/24.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>32.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>35.0°/26.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/26.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 大足 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 36.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 东南风 4.6公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>34.0°/24.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>32.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>34.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>36.0°/25.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>33.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>35.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 璧山 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.9°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 29.0°</span>
+    </div>
+    <div class="detail">湿度 57.0% &nbsp;|&nbsp; 东南风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>34.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>36.0°/29.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/29.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 铜梁 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.2°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 30.0°</span>
+    </div>
+    <div class="detail">湿度 58.0% &nbsp;|&nbsp; 东南风 4.6公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/26.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>33.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>36.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>38.0°/26.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>35.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>36.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 潼南 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.1°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 63.0% &nbsp;|&nbsp; 东南风 2.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>35.0°/26.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 晴<br>39.0°/25.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>36.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 荣昌 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 28.0°</span>
+    </div>
+    <div class="detail">湿度 57.0% &nbsp;|&nbsp; 东南风 3.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>37.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>34.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>36.0°/29.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>34.0°/27.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/27.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 开州 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.2°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 80.0% &nbsp;|&nbsp; 西南风 2.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>37.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>35.0°/24.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>34.0°/24.0°</span><span class="fc-day">07-14<br>☀️ 晴<br>36.0°/24.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>36.0°/24.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>34.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 梁平 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 72.0% &nbsp;|&nbsp; 东北风 2.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/25.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>34.0°/24.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>33.0°/25.0°</span><span class="fc-day">07-14<br>☀️ 晴<br>36.0°/25.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>35.0°/24.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>34.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 武隆 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">28.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 37.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 东北风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>⛈️ 雷阵雨<br>37.0°/25.0°</span><span class="fc-day">07-12<br>⛈️ 雷阵雨<br>35.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>39.0°/26.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>39.0°/26.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>37.0°/25.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 云南省（16城）<span class="ptag ptag-today">💧今日雨 1城</span><span class="ptag ptag-rain">🌧未来连雨 4城</span><span class="alert-dot orange" title="连续降雨"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">☀️ 昆明 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.2°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 29.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 84.0% &nbsp;|&nbsp; 西南风 0.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>27.0°/19.0°</span><span class="fc-day">07-12<br>🌦️ 阵雨<br>28.0°/17.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>27.0°/18.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>28.0°/18.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>28.0°/18.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>28.0°/18.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 曲靖 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.2°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 29.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 西南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>28.0°/18.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>28.0°/17.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>29.0°/18.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>29.0°/19.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>29.0°/19.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>30.0°/19.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 大理 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 28.0° / 18.0°</span>
+    </div>
+    <div class="detail">湿度 89.0% &nbsp;|&nbsp; 东南风 0.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/18.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>25.0°/14.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>25.0°/16.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>28.0°/17.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>27.0°/16.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>27.0°/16.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☁️ 丽江 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">19.0°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 28.0° / 16.0°</span>
+    </div>
+    <div class="detail">湿度 83.0% &nbsp;|&nbsp; 东北风 2.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/16.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>26.0°/15.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>27.0°/16.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>28.0°/16.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>27.0°/16.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>27.0°/17.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 红河 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 33.0° / 24.0°</span>
+    </div>
+    <div class="detail">湿度 100.0% &nbsp;|&nbsp; 东南风 2.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>32.0°/22.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>33.0°/22.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>34.0°/24.0°</span><span class="fc-day">07-14<br>🌦️ 阵雨<br>34.0°/24.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>33.0°/24.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>33.0°/24.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 西双版纳 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">25.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 32.0° / 24.0°</span>
+    </div>
+    <div class="detail">湿度 82.0% &nbsp;|&nbsp; 东北风 1.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>32.0°/23.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>31.0°/23.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>32.0°/23.0°</span><span class="fc-day">07-14<br>🌦️ 阵雨<br>31.0°/23.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>31.0°/23.0°</span><span class="fc-day">07-16<br>🌧️ 中雨<br>30.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 玉溪 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.2°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 29.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 90.0% &nbsp;|&nbsp; 北风 0.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>28.0°/19.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>27.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>29.0°/17.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>29.0°/18.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>29.0°/18.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>29.0°/18.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 保山 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续6天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">21.0°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 25.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 西南风 2.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>26.0°/19.0°</span><span class="fc-day">07-12<br>🌧️ 中雨<br>26.0°/17.0°</span><span class="fc-day">07-13<br>🌦️ 阵雨<br>29.0°/18.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>29.0°/19.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>29.0°/19.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>28.0°/19.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 昭通 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">21.5°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 31.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 74.0% &nbsp;|&nbsp; 东南风 2.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>27.0°/17.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>26.0°/16.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>29.0°/18.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>30.0°/18.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>29.0°/18.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>29.0°/17.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☁️ 普洱 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.6°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 26.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 93.0% &nbsp;|&nbsp; 西南风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>27.0°/20.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>26.0°/18.0°</span><span class="fc-day">07-13<br>🌦️ 阵雨<br>28.0°/19.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>27.0°/19.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>27.0°/19.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>26.0°/19.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 临沧 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">19.9°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 26.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 93.0% &nbsp;|&nbsp; 东南风 0.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>24.0°/19.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>25.0°/16.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>27.0°/17.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>28.0°/18.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>27.0°/18.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>27.0°/18.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 楚雄 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.1°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 28.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 86.0% &nbsp;|&nbsp; 西南风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>27.0°/19.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>27.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>28.0°/18.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>30.0°/19.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>29.0°/19.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>28.0°/19.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 文山 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">21.4°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 29.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 94.0% &nbsp;|&nbsp; 东南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>29.0°/20.0°</span><span class="fc-day">07-12<br>🌦️ 阵雨<br>29.0°/19.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>31.0°/20.0°</span><span class="fc-day">07-14<br>🌦️ 阵雨<br>30.0°/20.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>30.0°/20.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>29.0°/20.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">🌦️ 德宏 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续5天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">22.1°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 27.0° / 22.0°</span>
+    </div>
+    <div class="detail">湿度 97.0% &nbsp;|&nbsp; 东南风 0.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>28.0°/23.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>28.0°/22.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>32.0°/22.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>32.0°/22.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>31.0°/22.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>30.0°/22.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 怒江 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.8°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 29.0° / 23.0°</span>
+    </div>
+    <div class="detail">湿度 92.0% &nbsp;|&nbsp; 东南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>30.0°/23.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>31.0°/21.0°</span><span class="fc-day">07-13<br>🌦️ 阵雨<br>34.0°/21.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>34.0°/22.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>35.0°/22.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☁️ 迪庆 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">13.5°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 22.0° / 11.0°</span>
+    </div>
+    <div class="detail">湿度 100.0% &nbsp;|&nbsp; 西北风 1.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>20.0°/11.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>21.0°/8.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>22.0°/8.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>23.0°/10.0°</span><span class="fc-day">07-15<br>🌦️ 阵雨<br>21.0°/9.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>21.0°/11.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 贵州省（9城）<span class="ptag ptag-hot">🔥高温 1城</span><span class="alert-dot blue" title="高温"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">☀️ 贵阳 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.0°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 30.0° / 22.0°</span>
+    </div>
+    <div class="detail">湿度 84.0% &nbsp;|&nbsp; 西南风 2.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>30.0°/22.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>31.0°/22.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>32.0°/23.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>32.0°/22.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>31.0°/22.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>31.0°/22.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 遵义 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">24.9°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 32.0° / 23.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 东南风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>32.0°/23.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>32.0°/24.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>34.0°/24.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>34.0°/24.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>33.0°/24.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>35.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 毕节 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.4°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 30.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 75.0% &nbsp;|&nbsp; 东南风 0.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 阵雨<br>29.0°/18.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>24.0°/20.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>28.0°/21.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>30.0°/20.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>26.0°/19.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>31.0°/20.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 六盘水 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.8°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 27.0° / 17.0°</span>
+    </div>
+    <div class="detail">湿度 80.0% &nbsp;|&nbsp; 东南风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>27.0°/17.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>27.0°/17.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>29.0°/19.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>30.0°/19.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>29.0°/19.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>29.0°/17.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 铜仁 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">27.4°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 35.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 东南风 0.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/26.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>38.0°/27.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>39.0°/28.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>37.0°/27.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>37.0°/26.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>36.0°/26.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 安顺 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.4°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 29.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 89.0% &nbsp;|&nbsp; 西南风 2.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>28.0°/20.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>29.0°/21.0°</span><span class="fc-day">07-13<br>🌦️ 阵雨<br>28.0°/22.0°</span><span class="fc-day">07-14<br>☀️ 晴<br>29.0°/21.0°</span><span class="fc-day">07-15<br>☀️ 晴<br>28.0°/20.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>28.0°/20.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 黔西南 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 29.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 84.0% &nbsp;|&nbsp; 东南风 1.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>29.0°/19.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>30.0°/20.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>30.0°/21.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>30.0°/21.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>30.0°/21.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>31.0°/21.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 黔东南 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">26.7°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 33.0° / 24.0°</span>
+    </div>
+    <div class="detail">湿度 75.0% &nbsp;|&nbsp; 西北风 1.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 晴<br>34.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>35.0°/24.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>36.0°/25.0°</span><span class="fc-day">07-14<br>☀️ 晴<br>34.0°/24.0°</span><span class="fc-day">07-15<br>☀️ 晴<br>35.0°/25.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 黔南 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.7°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 31.0° / 22.0°</span>
+    </div>
+    <div class="detail">湿度 85.0% &nbsp;|&nbsp; 东南风 5.5公里/小时 4级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>32.0°/23.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>33.0°/23.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>34.0°/25.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>34.0°/24.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>33.0°/23.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>32.0°/23.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 西藏（7城）<span class="ptag ptag-today">💧今日雨 4城</span><span class="ptag ptag-rain">🌧未来连雨 6城</span><span class="alert-dot orange" title="连续降雨"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card rain-alert">
+    <div class="city-name">🌦️ 拉萨 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">11.8°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 22.0° / 14.0°</span>
+    </div>
+    <div class="detail">湿度 88.0% &nbsp;|&nbsp; 西北风 2.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>23.0°/16.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>23.0°/16.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>25.0°/14.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>25.0°/14.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>25.0°/13.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>24.0°/14.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 日喀则 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">13.2°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 22.0° / 11.0°</span>
+    </div>
+    <div class="detail">湿度 75.0% &nbsp;|&nbsp; 东北风 0.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>23.0°/11.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>21.0°/10.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>19.0°/11.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>24.0°/11.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>24.0°/11.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>22.0°/11.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">🌦️ 昌都 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">14.1°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 24.0° / 15.0°</span>
+    </div>
+    <div class="detail">湿度 86.0% &nbsp;|&nbsp; 西北风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>24.0°/13.0°</span><span class="fc-day">07-12<br>🌧️ 中雨<br>23.0°/12.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>27.0°/13.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>28.0°/14.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>27.0°/13.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>25.0°/13.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">🌦️ 林芝 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">14.2°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 21.0° / 14.0°</span>
+    </div>
+    <div class="detail">湿度 93.0% &nbsp;|&nbsp; 西北风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>17.0°/15.0°</span><span class="fc-day">07-12<br>🌧️ 中雨<br>22.0°/14.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>24.0°/14.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>27.0°/14.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>26.0°/15.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>23.0°/15.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☁️ 那曲 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">9.5°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 17.0° / 8.0°</span>
+    </div>
+    <div class="detail">湿度 66.0% &nbsp;|&nbsp; 东北风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>14.0°/8.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>17.0°/8.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>15.0°/7.0°</span><span class="fc-day">07-14<br>🌧️ 中雨<br>16.0°/7.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>17.0°/5.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>17.0°/7.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">🌦️ 山南 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">10.9°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 23.0° / 12.0°</span>
+    </div>
+    <div class="detail">湿度 91.0% &nbsp;|&nbsp; 东北风 3.6公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>23.0°/13.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>23.0°/12.0°</span><span class="fc-day">07-13<br>🌧️ 中雨<br>26.0°/12.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>25.0°/14.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>27.0°/13.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>25.0°/12.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 阿里 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">10.8°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 21.0° / 10.0°</span>
+    </div>
+    <div class="detail">湿度 78.0% &nbsp;|&nbsp; 东南风 0.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>20.0°/9.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>22.0°/10.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>22.0°/9.0°</span><span class="fc-day">07-14<br>☀️ 晴<br>23.0°/8.0°</span><span class="fc-day">07-15<br>☀️ 晴<br>24.0°/12.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>22.0°/11.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 青海省（8城）<span class="ptag ptag-today">💧今日雨 2城</span><span class="ptag ptag-rain">🌧未来连雨 6城</span><span class="alert-dot orange" title="连续降雨"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 西宁 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续5天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">16.5°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 20.0° / 14.0°</span>
+    </div>
+    <div class="detail">湿度 84.0% &nbsp;|&nbsp; 东南风 2.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>17.0°/11.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>19.0°/12.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>26.0°/13.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>24.0°/11.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>27.0°/13.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>23.0°/13.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 海东 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">17.3°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 26.0° / 13.0°</span>
+    </div>
+    <div class="detail">湿度 85.0% &nbsp;|&nbsp; 东南风 4.5公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>16.0°/11.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>20.0°/13.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>25.0°/14.0°</span><span class="fc-day">07-14<br>🌧️ 中雨<br>20.0°/11.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>25.0°/16.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>24.0°/14.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">🌦️ 玉树 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">11.8°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 21.0° / 11.0°</span>
+    </div>
+    <div class="detail">湿度 100.0% &nbsp;|&nbsp; 9999 0.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>18.0°/10.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>20.0°/11.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>23.0°/10.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>20.0°/8.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>21.0°/9.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>22.0°/2.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 海西 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">16.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 22.0° / 10.0°</span>
+    </div>
+    <div class="detail">湿度 54.0% &nbsp;|&nbsp; 东南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>21.0°/12.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>24.0°/13.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>21.0°/10.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>23.0°/13.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>25.0°/12.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>20.0°/9.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☁️ 海北 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续5天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">13.4°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 19.0° / 12.0°</span>
+    </div>
+    <div class="detail">湿度 89.0% &nbsp;|&nbsp; 东北风 1.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>13.0°/9.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>16.0°/6.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>21.0°/8.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>14.0°/8.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>20.0°/8.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>18.0°/5.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 黄南 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续5天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">17.2°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 21.0° / 15.0°</span>
+    </div>
+    <div class="detail">湿度 91.0% &nbsp;|&nbsp; 东北风 2.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>16.0°/10.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>17.0°/11.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>21.0°/12.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>19.0°/12.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>24.0°/14.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>18.0°/12.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 海南 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续5天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">15.2°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 24.0° / 11.0°</span>
+    </div>
+    <div class="detail">湿度 93.0% &nbsp;|&nbsp; 东南风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>17.0°/11.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>20.0°/8.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>20.0°/13.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>21.0°/12.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>22.0°/14.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>21.0°/12.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">🌦️ 果洛 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">11.7°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 16.0° / 10.0°</span>
+    </div>
+    <div class="detail">湿度 96.0% &nbsp;|&nbsp; 西北风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>13.0°/7.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>14.0°/9.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>19.0°/10.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>14.0°/4.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>14.0°/9.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>16.0°/7.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 宁夏（5城）<span class="ptag ptag-today">💧今日雨 2城</span><span class="ptag ptag-ext">⚡极端 1城</span><span class="alert-dot red" title="极端天气"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">🌦️ 银川 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">22.2°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 26.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 69.0% &nbsp;|&nbsp; 东北风 1.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>24.0°/16.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>28.0°/15.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>29.0°/16.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>31.0°/17.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>32.0°/18.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>33.0°/19.0°</span></div>
+  </div>
+  <div class="city-card extreme">
+    <div class="city-name">🌦️ 石嘴山 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-ext" title="未来7天内有暴雨/暴雪/雷暴等极端天气，建议调整户外活动安排">极端</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.6°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 27.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 70.0% &nbsp;|&nbsp; 西北风 4.5公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/17.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>26.0°/14.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>29.0°/15.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>31.0°/12.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>32.0°/15.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>32.0°/15.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 吴忠 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.0°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 27.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 58.0% &nbsp;|&nbsp; 西北风 5.3公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>24.0°/18.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>27.0°/15.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>29.0°/20.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>25.0°/17.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>31.0°/19.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>31.0°/17.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 固原 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">19.7°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 25.0° / 16.0°</span>
+    </div>
+    <div class="detail">湿度 85.0% &nbsp;|&nbsp; 西北风 5.6公里/小时 4级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>19.0°/14.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>22.0°/14.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>26.0°/15.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>26.0°/14.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>26.0°/15.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>24.0°/16.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 中卫 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.1°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 23.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 76.0% &nbsp;|&nbsp; 东北风 2.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>21.0°/16.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>24.0°/16.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>25.0°/13.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>25.0°/19.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>31.0°/18.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>29.0°/17.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 甘肃省（14城）<span class="ptag ptag-today">💧今日雨 6城</span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">🌦️ 兰州 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">18.8°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 24.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 87.0% &nbsp;|&nbsp; 西北风 0.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>22.0°/18.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>25.0°/19.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>28.0°/17.0°</span><span class="fc-day">07-14<br>🌧️ 中雨<br>26.0°/17.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>28.0°/18.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>27.0°/18.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 天水 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">26.3°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 31.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 东南风 0.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>28.0°/19.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>26.0°/19.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>31.0°/19.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>35.0°/20.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>26.0°/21.0°</span><span class="fc-day">07-16<br>🌧️ 中雨<br>27.0°/18.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">🌦️ 酒泉 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">18.1°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 24.0° / 16.0°</span>
+    </div>
+    <div class="detail">湿度 96.0% &nbsp;|&nbsp; 西北风 1.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>29.0°/15.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>28.0°/16.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>28.0°/16.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>32.0°/16.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/19.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>31.0°/18.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 张掖 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">N/A°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 24.0° / 17.0°</span>
+    </div>
+    <div class="detail">湿度 N/A% &nbsp;|&nbsp;  N/A公里/小时</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/16.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>30.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>27.0°/16.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>34.0°/15.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>34.0°/18.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>33.0°/17.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☁️ 陇南 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.2°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 33.0° / 24.0°</span>
+    </div>
+    <div class="detail">湿度 53.0% &nbsp;|&nbsp; 东南风 1.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>31.0°/22.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>30.0°/20.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>31.0°/22.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>28.0°/19.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>30.0°/19.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>27.0°/20.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 嘉峪关 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">18.9°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 25.0° / 16.0°</span>
+    </div>
+    <div class="detail">湿度 66.0% &nbsp;|&nbsp; 西南风 2.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>28.0°/15.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>31.0°/16.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>31.0°/20.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>32.0°/16.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/20.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>32.0°/19.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">🌦️ 金昌 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">16.7°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 26.0° / 16.0°</span>
+    </div>
+    <div class="detail">湿度 96.0% &nbsp;|&nbsp; 西南风 0.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/16.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>31.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>32.0°/15.0°</span><span class="fc-day">07-14<br>☀️ 多云<br>31.0°/17.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>33.0°/16.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>31.0°/18.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">🌦️ 白银 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">16.4°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 22.0° / 17.0°</span>
+    </div>
+    <div class="detail">湿度 87.0% &nbsp;|&nbsp; 西北风 4.0公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>18.0°/15.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>28.0°/15.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>27.0°/17.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>22.0°/15.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>27.0°/16.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>26.0°/17.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">🌧️ 武威 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">16.4°</span>
+      <span>中雨</span>
+      <span style="color:#64748b;">↑ 25.0° / 18.0°</span>
+    </div>
+    <div class="detail">湿度 97.0% &nbsp;|&nbsp; 东南风 1.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/16.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>28.0°/16.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>31.0°/19.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>28.0°/17.0°</span><span class="fc-day">07-15<br>☀️ 多云<br>34.0°/18.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>30.0°/21.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 平凉 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.3°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 30.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 75.0% &nbsp;|&nbsp; 东北风 1.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>23.0°/17.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>27.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>29.0°/17.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>19.0°/17.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>26.0°/16.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>22.0°/13.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 庆阳 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">24.5°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 30.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 东南风 3.4公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>27.0°/19.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>26.0°/18.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>25.0°/19.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>29.0°/17.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>27.0°/16.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>21.0°/17.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☁️ 定西 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.0°</span>
+      <span>阴</span>
+      <span style="color:#64748b;">↑ 26.0° / 13.0°</span>
+    </div>
+    <div class="detail">湿度 88.0% &nbsp;|&nbsp; 西北风 2.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>17.0°/14.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>23.0°/13.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>23.0°/14.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>18.0°/13.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>23.0°/14.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>20.0°/14.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">🌦️ 临夏 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">18.0°</span>
+      <span>小雨</span>
+      <span style="color:#64748b;">↑ 20.0° / 16.0°</span>
+    </div>
+    <div class="detail">湿度 99.0% &nbsp;|&nbsp; 北风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>17.0°/15.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>20.0°/14.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>27.0°/14.0°</span><span class="fc-day">07-14<br>🌧️ 中雨<br>21.0°/14.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>25.0°/15.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>20.0°/14.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 甘南 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">14.8°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 20.0° / 11.0°</span>
+    </div>
+    <div class="detail">湿度 95.0% &nbsp;|&nbsp; 西北风 0.9公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>14.0°/9.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>17.0°/10.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>22.0°/12.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>14.0°/10.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>20.0°/11.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>15.0°/8.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 新疆（14城）<span class="ptag ptag-hot">🔥高温 5城</span><span class="alert-dot blue" title="高温"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">☀️ 乌鲁木齐 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 30.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 55.0% &nbsp;|&nbsp; 西南风 1.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 晴<br>32.0°/21.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>34.0°/24.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>35.0°/23.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>37.0°/23.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>33.0°/22.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>34.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 克拉玛依 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">27.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 35.0° / 23.0°</span>
+    </div>
+    <div class="detail">湿度 32.0% &nbsp;|&nbsp; 西北风 4.3公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>38.0°/25.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>39.0°/26.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>39.0°/24.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>36.0°/26.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>38.0°/28.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 喀什 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">22.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 36.0° / 21.0°</span>
+    </div>
+    <div class="detail">湿度 35.0% &nbsp;|&nbsp; 9999 0.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>34.0°/20.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>28.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>29.0°/14.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>31.0°/18.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>34.0°/21.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>35.0°/21.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 哈密 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">23.0°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 32.0° / 17.0°</span>
+    </div>
+    <div class="detail">湿度 62.0% &nbsp;|&nbsp; 东南风 2.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>32.0°/20.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>36.0°/22.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>40.0°/21.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>42.0°/22.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>42.0°/24.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>40.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 伊犁 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">19.5°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 30.0° / 18.0°</span>
+    </div>
+    <div class="detail">湿度 69.0% &nbsp;|&nbsp; 东南风 2.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>33.0°/19.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>35.0°/19.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>36.0°/23.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>35.0°/21.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>34.0°/20.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>37.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 库尔勒 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.9°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 31.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 62.0% &nbsp;|&nbsp; 西北风 1.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>33.0°/22.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>36.0°/24.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>38.0°/27.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>39.0°/28.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>41.0°/27.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 吐鲁番 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">28.6°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 37.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 42.0% &nbsp;|&nbsp; 西南风 0.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☁️ 阴<br>40.0°/29.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>42.0°/29.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>45.0°/31.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>45.0°/32.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>47.0°/32.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>43.0°/28.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 昌吉 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.6°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 33.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 61.0% &nbsp;|&nbsp; 东南风 0.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>35.0°/22.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>37.0°/21.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>39.0°/24.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>39.0°/24.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>35.0°/22.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>37.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 博尔塔拉 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">16.9°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 33.0° / 18.0°</span>
+    </div>
+    <div class="detail">湿度 71.0% &nbsp;|&nbsp; 西北风 2.6公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>34.0°/18.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>35.0°/22.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>35.0°/21.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>37.0°/20.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>35.0°/18.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>37.0°/19.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 阿克苏 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">20.5°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 32.0° / 22.0°</span>
+    </div>
+    <div class="detail">湿度 58.0% &nbsp;|&nbsp; 东北风 0.9公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>34.0°/19.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>36.0°/22.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>37.0°/25.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>35.0°/24.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>34.0°/21.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 克孜勒苏 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">21.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 34.0° / 19.0°</span>
+    </div>
+    <div class="detail">湿度 48.0% &nbsp;|&nbsp; 东北风 0.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>33.0°/20.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>30.0°/21.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>30.0°/19.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>32.0°/19.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>34.0°/20.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/20.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 和田 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">25.3°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 35.0° / 21.0°</span>
+    </div>
+    <div class="detail">湿度 40.0% &nbsp;|&nbsp; 西南风 2.0公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☁️ 阴<br>34.0°/23.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>30.0°/24.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>29.0°/20.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>31.0°/18.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>33.0°/20.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 塔城 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">18.2°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 31.0° / 14.0°</span>
+    </div>
+    <div class="detail">湿度 64.0% &nbsp;|&nbsp; 东北风 1.7公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>34.0°/19.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>36.0°/17.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>37.0°/21.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>35.0°/18.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>34.0°/21.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>36.0°/20.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 阿勒泰 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">19.0°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 29.0° / 14.0°</span>
+    </div>
+    <div class="detail">湿度 76.0% &nbsp;|&nbsp; 东北风 1.2公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>30.0°/16.0°</span><span class="fc-day">07-12<br>☀️ 多云<br>31.0°/16.0°</span><span class="fc-day">07-13<br>☁️ 阴<br>34.0°/19.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>35.0°/19.0°</span><span class="fc-day">07-15<br>☁️ 阴<br>29.0°/16.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>31.0°/16.0°</span></div>
+  </div>
+</div>
+</div>
+<div class="prov-block">
+<div class="prov-header" onclick="toggleProvince(this)"><span class="arrow collapsed">▼</span> 陕西省（10城）<span class="ptag ptag-ext">⚡极端 1城</span><span class="ptag ptag-rain">🌧未来连雨 1城</span><span class="ptag ptag-hot">🔥高温 6城</span><span class="alert-dot red" title="极端天气"></span></div>
+<div class="city-grid collapsed">
+  <div class="city-card ">
+    <div class="city-name">☀️ 西安 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">32.8°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 36.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 66.0% &nbsp;|&nbsp; 西北风 0.5公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>☀️ 多云<br>36.0°/24.0°</span><span class="fc-day">07-12<br>☀️ 晴<br>37.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 宝鸡 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">27.7°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 38.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 西北风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>36.0°/23.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>31.0°/23.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>34.0°/23.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>36.0°/22.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>31.0°/23.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>31.0°/21.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 咸阳 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.9°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 38.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 62.0% &nbsp;|&nbsp; 东北风 4.2公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>37.0°/23.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>31.0°/23.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>34.0°/23.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>35.0°/23.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>31.0°/22.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>32.0°/23.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 渭南 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">31.6°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 27.0°</span>
+    </div>
+    <div class="detail">湿度 62.0% &nbsp;|&nbsp; 东北风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>36.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>33.0°/24.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>34.0°/24.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>36.0°/25.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>33.0°/22.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>34.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 延安 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">25.3°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 32.0° / 17.0°</span>
+    </div>
+    <div class="detail">湿度 77.0% &nbsp;|&nbsp; 西南风 0.8公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌧️ 中雨<br>29.0°/16.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>26.0°/16.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>29.0°/17.0°</span><span class="fc-day">07-14<br>☁️ 阴<br>30.0°/16.0°</span><span class="fc-day">07-15<br>☀️ 晴<br>30.0°/16.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>31.0°/20.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 汉中 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">30.3°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 38.0° / 26.0°</span>
+    </div>
+    <div class="detail">湿度 65.0% &nbsp;|&nbsp; 东南风 1.4公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>37.0°/25.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>34.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>36.0°/26.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>37.0°/24.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>35.0°/25.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>36.0°/24.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 铜川 </div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">26.8°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 33.0° / 20.0°</span>
+    </div>
+    <div class="detail">湿度 82.0% &nbsp;|&nbsp; 东北风 1.1公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>31.0°/19.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>30.0°/19.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>31.0°/20.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>31.0°/19.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>29.0°/18.0°</span><span class="fc-day">07-16<br>☀️ 多云<br>30.0°/20.0°</span></div>
+  </div>
+  <div class="city-card extreme">
+    <div class="city-name">☀️ 榆林 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-ext" title="未来7天内有暴雨/暴雪/雷暴等极端天气，建议调整户外活动安排">极端</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">25.7°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 28.0° / 22.0°</span>
+    </div>
+    <div class="detail">湿度 73.0% &nbsp;|&nbsp; 东南风 3.6公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>25.0°/20.0°</span><span class="fc-day">07-12<br>☁️ 阴<br>28.0°/20.0°</span><span class="fc-day">07-13<br>☀️ 多云<br>31.0°/20.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>31.0°/19.0°</span><span class="fc-day">07-15<br>☀️ 晴<br>31.0°/19.0°</span><span class="fc-day">07-16<br>☁️ 阴<br>34.0°/25.0°</span></div>
+  </div>
+  <div class="city-card ">
+    <div class="city-name">☀️ 安康 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-hist" title="冰柜出货量增加，关注终端库存周转">过去3天连续高温</span><span class="tag-pill tag-hot" title="预测未来7天最高气温≥38°C，冰饮需求激增，建议加大冰柜投放">未来极端高温</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">29.7°</span>
+      <span>晴</span>
+      <span style="color:#64748b;">↑ 38.0° / 25.0°</span>
+    </div>
+    <div class="detail">湿度 74.0% &nbsp;|&nbsp; 西北风 1.3公里/小时 微风</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>38.0°/24.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>36.0°/25.0°</span><span class="fc-day">07-13<br>☀️ 晴<br>37.0°/25.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>39.0°/25.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>37.0°/24.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>36.0°/24.0°</span></div>
+  </div>
+  <div class="city-card rain-alert">
+    <div class="city-name">☀️ 商洛 <span style="display:inline-flex;gap:4px;flex-wrap:wrap;align-items:center;"><span class="tag-pill tag-hist" title="往期户外动销下滑、仓库需防潮，建议谨慎短期户外投放">过去3天连雨</span><span class="tag-pill tag-rain" title="未来连续7天有降水，影响铺货效率，仓库需备足防潮物资">未来7天连雨</span></span></div>
+    <div style="display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;margin-bottom:5px;font-size:13px;color:#1a1a2e;">
+      <span style="font-weight:700;color:#1565c0;background:#e3f2fd;padding:1px 8px;border-radius:4px;">今日</span>
+      <span style="font-size:18px;font-weight:700;">27.0°</span>
+      <span>多云</span>
+      <span style="color:#64748b;">↑ 34.0° / 22.0°</span>
+    </div>
+    <div class="detail">湿度 81.0% &nbsp;|&nbsp; 东南风 3.9公里/小时 3级</div>
+    <div class="fc-mini"><span class="fc-day">07-11<br>🌦️ 小雨<br>31.0°/21.0°</span><span class="fc-day">07-12<br>🌦️ 小雨<br>32.0°/21.0°</span><span class="fc-day">07-13<br>🌦️ 小雨<br>34.0°/21.0°</span><span class="fc-day">07-14<br>🌦️ 小雨<br>35.0°/21.0°</span><span class="fc-day">07-15<br>🌦️ 小雨<br>31.0°/19.0°</span><span class="fc-day">07-16<br>🌦️ 小雨<br>32.0°/19.0°</span></div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+<div class="glossary">
+<div class="glossary-header" onclick="toggleGlossary(this)">
+  <span class="arrow">▼</span> 📖 字段解释与预警标准
+</div>
+<div class="glossary-body">
+<dl>
+<dt>数据来源</dt>
+<dd>中央气象台 (www.nmc.cn) 官方API，数据来自国家气象中心。权威、免费、无需API Key。</dd>
+<dt>今日天气</dt>
+<dd>显示今日最高/最低温度（↑ 高° / 低°）、天气状况。</dd>
+<dt>未来7天预报</dt>
+<dd>日期（月-日）→ 天气图标 + 中文描述 → 最高°/最低°。</dd>
+<dt>极端恶劣天气</dt>
+<dd>🚨 判定依据为中国气象局（NMC）官方气象灾害预警信号（红/橙/黄/蓝四级），当NMC对某城市发布预警信号时即被标记为"极端"。预警类型涵盖：暴雨、暴雪、寒潮、大风、沙尘暴、雷电、冰雹、霜冻、大雾、霾、道路结冰等13类灾害天气。在城市卡片顶部以红色边框标识，并在七日风险预判板块详细列出。</dd>
+<dt>连续降雨预警</dt>
+<dd>未来7天内连续≥5天出现降水（降雨天气代码）。在城市卡片中标记为橙色，预警板块列出具体日期范围。</dd>
+<dt>高温预警</dt>
+<dd>未来7天内任意一天最高气温 ≥ 38°C。城市卡片标记为橙色。</dd>
+<dt>严寒预警</dt>
+<dd>未来7天内任意一天最低气温 ≤ -15°C。城市卡片标记为蓝色。</dd>
+<dt>官方气象预警</dt>
+<dd>来自中国气象局官方发布的气象灾害预警信号，包括暴雨、高温、雷电、地质等各类型，按红/橙/黄/蓝四级标注。</dd>
+<dt>华西战区</dt>
+<dd>本报告覆盖华西十省：四川、重庆、云南、贵州、西藏、青海、宁夏、甘肃、新疆、陕西。</dd>
+<dt>天气图标</dt>
+<dd>☀️晴 ⛅多云 ☁️阴 🌫️雾 🌧️雨 ⛈️雷暴/暴雨 ❄️雪 🌨️雨夹雪 🌪️沙尘暴</dd>
+</dl>
+</div>
+</div><div class="footer">
+  <p><strong>东鹏饮料华西战区 · 天气预报</strong></p>
+  <p>数据来源: 中央气象台 (www.nmc.cn)</p>
+  <p>覆盖: 华西十省全部地级市 + 重庆全部区县（130城）</p>
+  <p>生成时间: 2026-07-10 08:34:30</p>
+</div>
+</div>
+<script>
+function eOA(){var h=document.querySelector('.official-alarm-header');if(h){h.nextElementSibling.classList.remove('collapsed');h.querySelector('.arrow').classList.remove('collapsed')}}
+function cOA(){var h=document.querySelector('.official-alarm-header');if(h){h.nextElementSibling.classList.add('collapsed');h.querySelector('.arrow').classList.add('collapsed')}}
+function eAS(){var h=document.querySelector('.alert-header');if(h){h.nextElementSibling.classList.remove('collapsed');h.querySelector('.arrow').classList.remove('collapsed')}}
+function cAS(){var h=document.querySelector('.alert-header');if(h){h.nextElementSibling.classList.add('collapsed');h.querySelector('.arrow').classList.add('collapsed')}}
+function eR(){document.querySelectorAll('.region-body, .city-grid').forEach(function(r){r.classList.remove('collapsed')});document.querySelectorAll('.region-header .arrow, .prov-header .arrow').forEach(function(a){a.classList.remove('collapsed')})}
+function cR(){document.querySelectorAll('.region-body, .city-grid').forEach(function(r){r.classList.add('collapsed')});document.querySelectorAll('.region-header .arrow, .prov-header .arrow').forEach(function(a){a.classList.add('collapsed')})}
+function eCaps(){var h=document.querySelector('.capital-header');if(h){h.nextElementSibling.classList.remove('collapsed');h.querySelector('.arrow').classList.remove('collapsed')}}
+function cCaps(){var h=document.querySelector('.capital-header');if(h){h.nextElementSibling.classList.add('collapsed');h.querySelector('.arrow').classList.add('collapsed')}}
+function gcFilter(mode){var btns=document.querySelectorAll('.gc-btn');btns.forEach(function(b){b.classList.remove('gc-active');b.style.fontWeight='600'});var btn=document.querySelector('.gc-btn[data-mode="'+mode+'"]');if(btn){btn.classList.add('gc-active');btn.style.fontWeight='700'}if(mode==='collapse'){cOA();cAS();cCaps();cR()}else if(mode==='all'){cOA();cAS();cCaps();cR();eOA();eAS();eCaps();eR()}else if(mode==='alarm'){cOA();cAS();cCaps();cR();eOA()}else if(mode==='alert7'){cOA();cAS();cCaps();cR();eAS()}else if(mode==='capital'){cOA();cAS();cCaps();cR();eCaps()}else if(mode==='region'){cOA();cAS();cCaps();cR();eR()}}
+var _expanded=true;function toggleExpandCollapse(){var btn=document.getElementById('toggleExpandBtn');if(_expanded){cOA();cAS();cCaps();cR();btn.classList.remove('gc-active');_expanded=false}else{eOA();eAS();eCaps();eR();btn.classList.add('gc-active');_expanded=true}}
+function gcProvFilter(sel){var prov=sel.value;eOA();eAS();eR();var citySel=document.getElementById('citySelect');var cityData=JSON.parse(document.getElementById('cityData').textContent||'{}');citySel.innerHTML='<option value="all">全部城市</option>';if(prov&&prov!=='all'&&cityData[prov]){cityData[prov].forEach(function(c){citySel.innerHTML+='<option value="'+c+'">'+c+'</option>'});citySel.style.display='inline-block'}else{citySel.style.display='none'}gcCityFilter(document.getElementById('citySelect'))}
+function toggleRegion(e){var b=e.nextElementSibling,a=e.querySelector('.arrow');b.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function toggleProvince(e){var g=e.nextElementSibling,a=e.querySelector('.arrow');g.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function toggleAlert(e){var b=e.nextElementSibling,a=e.querySelector('.arrow');b.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function toggleGlossary(e){var b=e.nextElementSibling,a=e.querySelector('.arrow');b.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function toggleAlertProv(e){var b=e.nextElementSibling,a=e.querySelector('.arrow');b.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function toggleCapital(e){var b=e.nextElementSibling,a=e.querySelector('.arrow');b.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function toggleOfficialAlarm(e){var b=e.nextElementSibling,a=e.querySelector('.arrow');b.classList.toggle('collapsed');a.classList.toggle('collapsed')}
+function filterAlert(caller,filter){var pb=caller.closest('.alert-prov-body');if(!pb)return;var rows=pb.querySelectorAll('.alert-city-row'),tags=pb.parentNode.querySelectorAll('.filter-tag');tags.forEach(function(t){t.classList.remove('active')});if(caller)caller.classList.add('active');rows.forEach(function(r){if(filter==='all'||r.classList.contains('filter-group-summary')){r.classList.remove('filter-hidden')}else{if(r.dataset&&r.dataset.risk&&r.dataset.risk.indexOf(filter)!==-1){r.classList.remove('filter-hidden')}else{r.classList.add('filter-hidden')}}})}
+function toggleProvView(btn,view){var pb=btn.closest('.alert-prov-body');if(!pb)return;var vtns=pb.parentNode.querySelectorAll('.vt-btn');vtns.forEach(function(v){v.classList.remove('active')});btn.classList.add('active');var allRows=pb.querySelectorAll('.alert-city-row'),summaries=pb.querySelectorAll('.alert-city-row.filter-group-summary');if(view==='compact'){summaries.forEach(function(r){r.style.display='flex'});allRows.forEach(function(r){if(r.classList.contains('filter-group-summary'))return;var r2=r.dataset&&r.dataset.tier&&parseInt(r.dataset.tier)<3;r2?r.classList.remove('filter-hidden'):r.classList.add('filter-hidden')})}else{summaries.forEach(function(r){r.style.display='none'});allRows.forEach(function(r){if(!r.classList.contains('filter-group-summary'))r.classList.remove('filter-hidden')})}}
+function filterWarzoneTag(caller,risk){var wst=caller.closest('.warzone-summary');if(!wst)return;var tags=wst.querySelectorAll('.warzone-tag');tags.forEach(function(t){t.classList.remove('active')});if(caller)caller.classList.add('active');eAS();document.querySelectorAll('.alert-prov-block').forEach(function(pb){var ph=pb.querySelector('.alert-prov-header'),body=pb.querySelector('.alert-prov-body');if(body){var rows=body.querySelectorAll('.alert-city-row'),hasMatch=false;rows.forEach(function(r){if(r.dataset&&r.dataset.risk&&r.dataset.risk.indexOf(risk)!==-1){r.classList.remove('filter-hidden');hasMatch=true}else if(!r.classList.contains('filter-group-summary')){r.classList.add('filter-hidden')}});if(hasMatch){body.classList.remove('collapsed');var a=ph.querySelector('.arrow');if(a)a.classList.remove('collapsed')}else{body.classList.add('collapsed');var a=ph.querySelector('.arrow');if(a)a.classList.add('collapsed')}}})}
+function gcCityFilter(sel){var prov=document.querySelector('.prov-select').value;var city=sel?sel.value:'all';eOA();eAS();eR();var showAll=!prov||prov==='all';var showAllCity=!city||city==='all';document.querySelectorAll('.alert-prov-block').forEach(function(pb){var ph=pb.querySelector('.alert-prov-header');var match=showAll||(ph&&ph.textContent.indexOf(prov)>=0);pb.style.display=match?'block':'none';if(match&&pb.querySelector('.alert-prov-body')){pb.querySelector('.alert-prov-body').querySelectorAll('.alert-city-row').forEach(function(r){var cells=Array.from(r.querySelectorAll('.ac-name')).map(function(n){return n.textContent});var cityMatch=showAllCity||cells.some(function(t){return t.indexOf(city)>=0});r.style.display=cityMatch?'flex':'none'})}});document.querySelectorAll('.prov-block').forEach(function(pb){var ph=pb.querySelector('.prov-header');var match=showAll||(ph&&ph.textContent.indexOf(prov)>=0);pb.style.display=match?'block':'none';if(match){pb.querySelectorAll('.city-card').forEach(function(c){var nm=c.querySelector('.city-name');var cityMatch=showAllCity||(nm&&nm.textContent.indexOf(city)>=0);c.style.display=cityMatch?'block':'none'})}});document.querySelectorAll('.alarm-card').forEach(function(ac){var match=showAll||ac.textContent.indexOf(prov)>=0;var cityMatch=showAllCity||ac.textContent.indexOf(city)>=0;ac.style.display=(match&&cityMatch)?'flex':'none'});var alarmSection=document.querySelector('.official-alarm');if(alarmSection){var anyVisible=Array.from(alarmSection.querySelectorAll('.alarm-card')).some(function(ac){return ac.style.display!=='none'});alarmSection.style.display=anyVisible?'block':'none'}}
+function exportReport(){var html=document.documentElement.outerHTML;var blob=new Blob(['<!DOCTYPE html>\n'+html],{type:'text/html;charset=utf-8'});var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;var d=new Date();a.download='weather_report_'+d.getFullYear()+('0'+(d.getMonth()+1)).slice(-2)+('0'+d.getDate()).slice(-2)+'.html';a.click();URL.revokeObjectURL(url)}
+function checkAlarmLink(e,url){e.preventDefault();fetch(url,{method:'HEAD',mode:'cors',cache:'no-cache'}).then(function(r){if(r.ok){window.open(url,'_blank','noopener')}else{document.getElementById('alarmModalOverlay').classList.add('active')}}).catch(function(){window.open(url,'_blank','noopener')})}
+function closeAlarmModal(){document.getElementById('alarmModalOverlay').classList.remove('active')}
+</script>
+<div id="alarmModalOverlay" class="alarm-modal-overlay" onclick="if(event.target===this)closeAlarmModal()">
+  <div class="alarm-modal">
+    <div class="modal-icon">⏰</div>
+    <div class="modal-title">预警已过期</div>
+    <div class="modal-desc">该预警已超过官方 24 小时留存时效，详情页面已归档无法访问，请刷新查看最新预警。</div>
+    <button class="modal-btn" onclick="closeAlarmModal()">我知道了</button>
+  </div>
+</div>
+<button class="btn-export" onclick="exportReport()" title="导出完整报告为HTML文件">📥 导出HTML</button>
+</body></html>
